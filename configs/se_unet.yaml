@@ -1,0 +1,11 @@
+# SE-UNet configuration
+# Inherits from base.yaml
+
+model:
+  name: "se_unet"
+  in_channels: 1
+  out_channels: 1
+  features: [64, 128, 256, 512]
+  dropout: 0.1
+  bilinear: true
+  se_reduction: 16

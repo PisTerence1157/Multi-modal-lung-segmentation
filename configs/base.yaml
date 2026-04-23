@@ -1,0 +1,94 @@
+# Base configuration - shared by all models
+# Model-specific configs inherit and override
+
+# ============== Data Configuration ==============
+# data_root: override via DATA_ROOT env var or --data-root CLI arg
+data_root: "."
+
+data:
+  # Index file path (relative to data_root)
+  index_path: "data/index.csv"
+  # Dataset filter: null=all, or 'kaggle', 'montgomery', 'shenzhen'
+  dataset_filter: null
+  dataset_name: "all_cxr"
+
+dataset:
+  image_size: [512, 512]
+  normalize: true
+  mean: [0.485]
+  std: [0.229]
+
+# ============== Training Configuration ==============
+training:
+  batch_size: 16
+  num_epochs: 40
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "adam"
+  seed: 42
+
+scheduler:
+  type: "reduce_on_plateau"
+  factor: 0.5
+  patience: 3
+  threshold: 0.001
+  min_lr: 1e-6
+
+early_stopping:
+  patience: 6
+  min_delta: 0.002
+  monitor: "val_dice"
+  mode: "max"
+
+# ============== Loss Configuration ==============
+loss:
+  type: "dice_bce"
+  dice_weight: 0.7
+  bce_weight: 0.3
+
+# ============== Augmentation (fixed for fair comparison) ==============
+augmentation:
+  horizontal_flip: 0.5
+  rotation: 15
+  scale: [0.9, 1.1]
+  brightness: 0.1
+  contrast: 0.1
+
+# ============== Metrics ==============
+metrics:
+  - "dice"
+  - "iou"
+  - "precision"
+  - "recall"
+  - "accuracy"
+
+# ============== Output Configuration ==============
+# Structure: outputs/{dataset}/{model}/{timestamp}_seed{seed}/
+output:
+  base_dir: "outputs"
+  run_id: null  # auto-generated if null
+
+logging:
+  log_interval: 10
+
+visualization:
+  num_samples: 10
+
+# ============== Inference & Evaluation ==============
+inference:
+  threshold: 0.5
+
+postprocess:
+  keep_largest_cc: false  # Keep only largest connected component
+
+# ============== Device ==============
+device: "cuda"
+num_workers: 4
+
+# ============== CT Configuration ==============
+ct:
+  target_spacing: [1.0, 1.0, 1.0]
+  window_center: -600
+  window_width: 1500
+  patch_size: [128, 128, 32]
+  patches_per_volume: 4

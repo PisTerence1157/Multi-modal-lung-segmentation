@@ -1,0 +1,4 @@
+# Shenzhen CXR dataset configuration
+data:
+  dataset_filter: "shenzhen"
+  dataset_name: "shenzhen"

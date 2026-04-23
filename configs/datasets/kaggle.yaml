@@ -1,0 +1,4 @@
+# Kaggle CXR dataset configuration
+data:
+  dataset_filter: "kaggle"
+  dataset_name: "kaggle"

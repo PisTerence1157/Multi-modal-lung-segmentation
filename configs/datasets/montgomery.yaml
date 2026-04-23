@@ -1,0 +1,4 @@
+# Montgomery CXR dataset configuration
+data:
+  dataset_filter: "montgomery"
+  dataset_name: "montgomery"

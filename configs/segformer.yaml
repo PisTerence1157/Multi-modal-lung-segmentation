@@ -1,0 +1,14 @@
+# SegFormer configuration
+# Inherits from base.yaml
+
+model:
+  name: "segformer"
+  in_channels: 1
+  out_channels: 1
+  pretrained: true
+  pretrained_model: "nvidia/segformer-b0-finetuned-ade-512-512"
+  use_imagenet_norm: true
+
+# SegFormer may need smaller batch size due to memory
+training:
+  batch_size: 8
