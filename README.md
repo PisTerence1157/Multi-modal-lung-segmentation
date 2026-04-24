@@ -1,3 +1,4 @@
+<img width="622" height="379" alt="Screenshot 2026-04-24 at 12 03 53" src="https://github.com/user-attachments/assets/928b2ded-8a6b-4a6e-84f1-17eb45f84af7" />
 # Multi-modal Lung Segmentation (CXR + CT)
 
 > MSc dissertation — a PyTorch + MONAI pipeline for lung segmentation across 2D Chest X-Ray and 3D CT modalities, benchmarking **six segmentation architectures** with rigorous multi-seed evaluation.
