@@ -1,3 +1,4 @@
+<img width="5867" height="4906" alt="fig_ct_2d_vs_3d_1_3_6_1_4_1_14519_5_2_1_6279_6001_105756" src="https://github.com/user-attachments/assets/74e90d39-c109-4d7f-ad07-42b640fdb761" />
 <img width="622" height="379" alt="Screenshot 2026-04-24 at 12 03 53" src="https://github.com/user-attachments/assets/928b2ded-8a6b-4a6e-84f1-17eb45f84af7" />
 # Multi-modal Lung Segmentation (CXR + CT)
 
